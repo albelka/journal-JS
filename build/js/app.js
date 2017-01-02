@@ -14,9 +14,19 @@ Entry.prototype.countVowels = function(uniqueEntry) {
   var count = 0;
   myArray.forEach(function(element){
     if ((/a|e|i|o|u/gi).test(element)) {
-      console.log("hi");
       count++ ;
-      console.log(element);
+    }
+  });
+  return count;
+};
+
+Entry.prototype.countConsonants = function(uniqueEntry) {
+  var myArray= [];
+  myArray = uniqueEntry.split('');
+  var count = 0;
+  myArray.forEach(function(element){
+    if (!(/a|e|i|o|u|\s/gi).test(element)) {
+      count++ ;
     }
   });
   return count;
@@ -34,9 +44,11 @@ $(document).ready(function() {
     var body = $("#body").val();
     var newEntry = new Entry(title, body);
     var vowelCount = newEntry.countVowels(body);
+    var consonantCount = newEntry.countConsonants(body);
     var output = newEntry.wordsNumber(body);
     $('#wordCount').text(output);
     $('#vowelCount').text(vowelCount);
+    $('#consonantCount').text(consonantCount);
   });
 });
 
