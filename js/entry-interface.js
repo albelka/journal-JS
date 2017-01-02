@@ -6,8 +6,9 @@ $(document).ready(function() {
     var title = $("#title").val();
     var body = $("#body").val();
     var newEntry = new Entry(title, body);
+    var vowelCount = newEntry.countVowels(body);
     var output = newEntry.wordsNumber(body);
-    console.log(output);
     $('#wordCount').text(output);
+    $('#vowelCount').text(vowelCount);
   });
 });

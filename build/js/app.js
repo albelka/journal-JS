@@ -8,6 +8,20 @@ Entry.prototype.wordsNumber = function(uniqueEntry) {
   return uniqueEntry.split(" ").length;
 };
 
+Entry.prototype.countVowels = function(uniqueEntry) {
+  var myArray= [];
+  myArray = uniqueEntry.split('');
+  var count = 0;
+  myArray.forEach(function(element){
+    if ((/a|e|i|o|u/gi).test(element)) {
+      console.log("hi");
+      count++ ;
+      console.log(element);
+    }
+  });
+  return count;
+};
+
 exports.entryModule = Entry;
 
 },{}],2:[function(require,module,exports){
@@ -19,9 +33,10 @@ $(document).ready(function() {
     var title = $("#title").val();
     var body = $("#body").val();
     var newEntry = new Entry(title, body);
+    var vowelCount = newEntry.countVowels(body);
     var output = newEntry.wordsNumber(body);
-    console.log(output);
     $('#wordCount').text(output);
+    $('#vowelCount').text(vowelCount);
   });
 });
 
