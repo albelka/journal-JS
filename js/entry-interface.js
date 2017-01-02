@@ -8,9 +8,11 @@ $(document).ready(function() {
     var newEntry = new Entry(title, body);
     var vowelCount = newEntry.countVowels(body);
     var consonantCount = newEntry.countConsonants(body);
+    var teaser = newEntry.getTeaser(body);
     var output = newEntry.wordsNumber(body);
     $('#wordCount').text(output);
     $('#vowelCount').text(vowelCount);
     $('#consonantCount').text(consonantCount);
+    $('#teaser').text(teaser);
   });
 });
