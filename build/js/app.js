@@ -34,11 +34,11 @@ Entry.prototype.countConsonants = function(uniqueEntry) {
 
 Entry.prototype.getTeaser = function(uniqueEntry) {
   var myArray = [];
-  myArray = uniqueEntry.split(". ");
+  myArray = uniqueEntry.split(/[.!?]/);
   var myString = myArray[0].toString();
   var firstSentence = myString.split(" ");
   if (firstSentence.length < 8) {
-    return firstSentence.toString();
+    return firstSentence.join(" ");
   } else {
     var words = firstSentence.slice(0,8).join(" ");
     return words;
