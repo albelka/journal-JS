@@ -67,4 +67,8 @@ $(document).ready(function() {
   });
 });
 
+$(document).ready(function() {
+  $('#time').text(moment());
+});
+
 },{"./../js/entry.js":1}]},{},[2]);
